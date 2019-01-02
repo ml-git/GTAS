@@ -25,33 +25,47 @@ pipeline {
 					'''
 				}
 			}
-		} // end of Build step
+			} // end of Build step
 
-		stage('Test') {
-			//def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
-			//buildContainer.pull()
-			//buildContainer.inside {
-			//	sh ''
-			//	sh ''
+			stage('Test') {
+				steps {
+					sh '''
+				  skipping tests
+					'''
 			}
-		
+				//def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
+				//buildContainer.pull()
+				//buildContainer.inside {
+				//	sh ''
+				//	sh ''
+			}
 
-		stage('Test with a DB') {
-			//		 def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
-			//		 def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
-			//		 buildContainer.pull()
-			//		 buildContainer.inside("--link ${mysql.id}:localhost") { // using linking, mysql will be available at host: localhost, port: 3306
-			//			  
-			//			  sh 'mvn clean install '  // this command to build with unit tests
-			//			                     
-			//		 }                                   
-			//		 mysql.stop()
-		}
+			stage('Test with a DB') {
+				steps {
+					sh '''
+				  skipping tests with db
+					'''
+			}
+				//		 def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes")
+				//		 def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
+				//		 buildContainer.pull()
+				//		 buildContainer.inside("--link ${mysql.id}:localhost") { // using linking, mysql will be available at host: localhost, port: 3306
+				//
+				//			  sh 'mvn clean install '  // this command to build with unit tests
+				//
+				//		 }
+				//		 mysql.stop()
+			}
 
-		stage('Docker build/push') {
-			//docker.withRegistry('https://index.docker.io/v1/', '<dockerhub username>') {
-			//  def app = docker.build("<githubusername>/<repo>:${commit_id}", '.').push()
-			//}                                     
+			stage('Docker build/push') {
+				steps {
+					sh '''
+				  skipping docker push
+					'''
+			}
+				//docker.withRegistry('https://index.docker.io/v1/', '<dockerhub username>') {
+				//  def app = docker.build("<githubusername>/<repo>:${commit_id}", '.').push()
+				//}
+			}
 		}
 	}
-}
