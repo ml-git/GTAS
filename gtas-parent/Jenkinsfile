@@ -34,7 +34,7 @@ pipeline {
 			//	sh ''
 			//	sh ''
 			}
-		}
+		
 
 		stage('Test with a DB') {
 			//		 def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
