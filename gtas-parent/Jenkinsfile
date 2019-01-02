@@ -28,11 +28,11 @@ pipeline {
 		} // end of Build step
 
 		stage('Test') {
-			def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
-			buildContainer.pull()
-			buildContainer.inside {
-				sh ''
-				sh ''
+			//def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
+			//buildContainer.pull()
+			//buildContainer.inside {
+			//	sh ''
+			//	sh ''
 			}
 		}
 
