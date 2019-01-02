@@ -27,7 +27,7 @@ pipeline {
             }
         } // end of Build step
 		
-		stage('Test') {
+	stage('Test') {
 			 def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
 			 buildContainer.pull()
 			 buildContainer.inside {
@@ -36,7 +36,7 @@ pipeline {
 		 }
 	   }
 	   
-	   stage('Test with a DB') {
+	stage('Test with a DB') {
 	//		 def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
 	//		 def buildContainer = docker.image('sanandreas/mavenjava8gitimage:latest')
 	//		 buildContainer.pull()
@@ -48,7 +48,7 @@ pipeline {
 	//		 mysql.stop()
 	   }   
 	   
-	   stage('Docker build/push') {            
+	 stage('Docker build/push') {            
 			 //docker.withRegistry('https://index.docker.io/v1/', '<dockerhub username>') {
 			 //  def app = docker.build("<githubusername>/<repo>:${commit_id}", '.').push()
 			 //}                                     
