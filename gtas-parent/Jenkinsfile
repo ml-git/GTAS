@@ -16,10 +16,7 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				//sh 'cd gtas-parent && mvn clean install -Dskip.unit.tests=true'
-				sh '''
-				 echo "skipping tests"
-				'''
+				sh 'cd gtas-parent && mvn clean install' // -Dskip.unit.tests=true
 			}
 			post {
 				success {
